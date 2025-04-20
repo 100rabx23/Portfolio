@@ -20,6 +20,16 @@
     }
   },
   {
+    "name": "Save & Share",
+    "desc": "i bring in the solution by building “Save & Share”: Ideation Document: Tackling Food Insecurity and Waste through a Seamless Food Redistribution Platform",
+    "image": "./assets/images/projects/SnSlogo.png",
+    "category": "PHP Application",
+    "links": {
+      "view": "https://github.com/100rabx23/Save-Share",
+      "code": "https://wa.me/918591033839"
+    }
+  },
+  {
     "name": "USTMA",
     "desc": "A small Mainteances system created using C# and .NET. Students & Faulty can complain using this application.",
     "image": "./assets/images/projects/ustma.jpeg",
