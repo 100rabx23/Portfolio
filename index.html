@@ -2,363 +2,264 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Saurabh Singh, portfolio, Saurabh, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
-    <meta name="description" content="Welcome to Saurabh's Portfolio. Web Developer and Android App Developer" />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Favicon -->
-    <link id='favicon' rel="shortcut icon" href="./assets/images/sauupic2.png" type="image/x-png">
-    <title>Portfolio | Saurabh Singh</title>
+    <meta name="keywords" content="Saurabh Singh, portfolio, Android Developer, Kotlin, KMP" />
+    <meta name="description" content="Saurabh Singh - Android Developer & Leader" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Saurabh Singh | Portfolio</title>
+    
+    <style>
+        /* MODERN UI THEME - 2026 STANDARDS */
+        :root {
+            --primary: #3b82f6;
+            --secondary: #2dd4bf;
+            --bg-dark: #0f172a;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* GLASSMORPHISM CARDS */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* HEADER & NAV */
+        header {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 1.5rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .navbar ul { display: flex; list-style: none; gap: 2rem; }
+        .navbar a { text-decoration: none; color: #94a3b8; font-weight: 500; transition: 0.3s; }
+        .navbar a:hover { color: var(--primary); }
+
+        /* HERO SECTION */
+        .home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 40%);
+        }
+
+        .home .content h2 { font-size: 4rem; margin-bottom: 1rem; }
+        .home .content h2 span {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .typing-text { color: var(--secondary); font-weight: 600; }
+
+        .image img {
+            width: 400px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: morphing 10s infinite alternate;
+            border: 2px solid var(--glass-border);
+        }
+
+        @keyframes morphing {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            100% { border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
+        }
+
+        /* BENTO GRID SECTIONS */
+        .section-container {
+            padding: 100px 10%;
+        }
+
+        .heading {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* BUTTONS */
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            transition: 0.3s;
+        }
+
+        .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+        /* SKILLS LIST */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .skill-badge {
+            background: var(--glass);
+            padding: 0.5rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 3rem 10%;
+            background: #070b14;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        @media (max-width: 768px) {
+            .home { flex-direction: column-reverse; justify-content: center; text-align: center; }
+            .home .content h2 { font-size: 2.5rem; }
+            .image img { width: 250px; }
+            .navbar { display: none; } /* Add burger menu logic here */
+        }
+    </style>
 </head>
 <body oncontextmenu="return false">
 
-<!-- pre loader -->
-<div class="loader-container" id="preloader">
-  <img draggable="false" src="./assets/images/preloader.gif" alt="Loading...">
-</div>
-<!-- navbar starts -->
 <header>
-        <a href="/" class="logo"><i class="fab fa-node-js"></i> Saurabh</a>
-
-        <div id="menu" class="fas fa-bars"></div>
-        <nav class="navbar">
-            <ul>
-            <li><a class="active" href="#home">Home</a></li>
+    <a href="/" class="logo"><i class="fab fa-node-js"></i> Saurabh</a>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#work">Work</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-</header>
-<!-- navbar ends -->
-
-
-<!-- hero section starts -->
-<section class="home" id="home">
-    <div id="particles-js"></div>
-
-    <div class="content">
-    <h2>Hi There,<br/> I'm Saurabh <span>Singh</span></h2>
-    <p>i am into <span class="typing-text"></span></p>
-    <a href="#about" class="btn"><span>About Me</span>
-      <i class="fas fa-arrow-circle-down"></i>
-    </a>
-    <div class="socials">
-        <ul class="social-icons">
-          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/saurabh-singh-722246230/" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
-          <li><a class="github" aria-label="GitHub" href="https://github.com/100rabx23" target="_blank"><i class="fab fa-github"></i></a></li>
-          <li><a class="twitter" aria-label="Twitter" href="https://x.com/saurabhx2004?t=ei9ic-O04bR-XeUgtNh3ig&s=09" target="_blank"><i class="fab fa-twitter"></i></a></li>
-          <!--<li><a class="telegram" aria-label="Telegram" href="https://t.me/lifecode5" target="_blank"><i class="fab fa-telegram-plane"></i></a></li> -->
-          <li><a class="instagram" aria-label="Instagram" href="https://www.instagram.com/100rabx_"><i class="fab fa-instagram" target="_blank"></i></a></li>
-          <li><a class="dev" aria-label="Dev" href="https://dev.to/saurabh_singh_70862121ab3" target="_blank"><i class="fab fa-dev"></i></a></li>
-
         </ul>
-      </div>
+    </nav>
+</header>
+
+<section class="home" id="home">
+    <div class="content">
+        <h2>Hi There,<br/> I'm <span>Saurabh Singh</span></h2>
+        <p style="font-size: 1.2rem;">I specialize in <span class="typing-text"></span></p>
+        <div class="socials" style="margin-top: 2rem;">
+            <a href="https://github.com/100rabx23" style="color:white; font-size: 1.5rem; margin-right: 15px;"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/saurabh-singh-722246230/" style="color:white; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <a href="#about" class="btn">Learn More <i class="fas fa-chevron-right"></i></a>
     </div>
-<div class="image">
-    <img draggable="false" class="tilt" src="./assets/images/saupic.png" alt="">
-</div>
-</section>
-<!-- hero section ends -->
-
-
-<!-- about section starts -->
-<section class="about" id="about">
-    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
-    
-    <div class="row">
-
     <div class="image">
-        <img draggable="false" class="tilt" src="./assets/images/profile2.jpeg" alt="">
+        <img src="./assets/images/saupic.png" alt="Saurabh Singh">
     </div>
-    <div class="content">
-        <h3>I'm Saurabh Singh</h3>
-        <span class="tag">Android Developer</span>
-        
-        <p>Passionate Android App Development Leader and GDSC Android Lead with a robust background in Computer Engineering. I bring hands-on experience in IoT and AI projects, successfully securing funding for these initiatives through the SSIP Cell, Government of Gujarat. My strengths lie in leveraging technical expertise and problem-solving skills to drive innovation and excel in dynamic environments.
-           </p>
-        
-        <div class="box-container">
-            
-            <div class="box">
-              <p><span> email : </span> saurabhx2004@gmail.com</p>
-              <p><span> place : </span> Ahmedabad, India - 382481</p>
-            </div>
-        </div>
-        
+</section>
+
+<section class="section-container" id="about">
+    <div class="glass-card">
+        <h2 class="heading" style="text-align: left; margin-bottom: 1rem;">About <span>Me</span></h2>
+        <p style="line-height: 1.8; color: #cbd5e1; max-width: 800px;">
+            Passionate Android App Development Leader and GDSC Android Lead with a robust background in Computer Engineering. 
+            I bring hands-on experience in IoT and AI projects, successfully securing funding through the SSIP Cell, Government of Gujarat.
+        </p>
         <div class="resumebtn">
-            <a href="./assets/resume/Saurabh-Resume.pdf" target="_blank" class="btn"><span>Resume</span>
-                <i class="fas fa-chevron-right"></i>
-            </a>
-        </div>
-
-    </div>
-    </div>
-</section>
-<!-- about section ends -->
-
-<!-- skills section starts -->
-<section class="skills" id="skills">
-
-    <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills & <span>Abilities</span></h2>
-
-    <div class="container">
-          <div class="row" id="skillsContainer">
-
-            <!-- <div class="bar">
-              <div class="info">
-                <img src="https://img.icons8.com/color/48/000000/adobe-xd.png"/>
-                <span>AdobeXD</span>
-              </div>
-            </div> -->
-
-      </div>
-</div>
-</section>
-<!-- skills section ends -->
-
-
-<!-- education section starts -->
-<section class="education" id="education">
-
-  <h1 class="heading"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
-
-    <p class="qoute">Education is not the learning of facts, but the training of the mind to think.</p>
-    <div class="box-container">
-        
-        <div class="box">
-        <div class="image">
-        <img draggable="false" src="./assets/images/clgp.jpg" alt="">
-        </div>
-        <div class="content">
-        <h3>B.Tech in Computer Engineering</h3>
-        <p>Silver Oak University  |  Ahmedabad</p>
-        <h4>2024-Present </h4>
+            <a href="./assets/resume/Saurabh-Resume.pdf" target="_blank" class="btn" style="background: transparent; border: 1px solid var(--primary);">View Resume</a>
         </div>
     </div>
+</section>
 
-    <div class="box">
-        <div class="image">
-        <img draggable="false" src="./assets/images/educat/clgdiploma.jpg" alt="">
+<section class="section-container" id="skills">
+    <h2 class="heading">Skills & <span>Abilities</span></h2>
+    <div class="skills-container">
+        <div class="skill-badge"><i class="fab fa-android" style="color:#3DDC84"></i> Android Development</div>
+        <div class="skill-badge"><i class="fab fa-kotlin" style="color:#7F52FF"></i> Kotlin / KMP</div>
+        <div class="skill-badge"><i class="fab fa-python" style="color:#3776AB"></i> Python</div>
+        <div class="skill-badge"><i class="fas fa-shield-alt" style="color:#ef4444"></i> Cybersecurity</div>
+        <div class="skill-badge"><i class="fas fa-database" style="color:#f59e0b"></i> SQL & Firebase</div>
+    </div>
+</section>
+
+<section class="section-container" id="experience">
+    <h2 class="heading">Experience</h2>
+    <div class="bento-grid">
+        <div class="glass-card">
+            <span style="color: var(--secondary); font-weight: bold;">2023 - 2024</span>
+            <h3>GDSC Lead</h3>
+            <p>Mobile Application Lead at Silver Oak University. Mentored 100+ students in Android development.</p>
         </div>
-        <div class="content">
-        <h3>Diploma in Computer Engineering</h3>
-        <p>UPL University of Sustainable Technology |  Bharuch</p>
-        <h4>2021-2024 | Completed</h4>
+        <div class="glass-card">
+            <span style="color: var(--secondary); font-weight: bold;">July 2023</span>
+            <h3>Riseup-Infotech</h3>
+            <p>Android Developer Intern. Built production-ready modules for client apps in Surat.</p>
         </div>
     </div>
+</section>
 
-    <div class="box">
-      <div class="image">
-      <img draggable="false" src="./assets/images/educat/school.jpg" alt="">
-      </div>
-      <div class="content">
-      <h3>SSC Xth</h3>
-      <p>S.E.S High School |  Navi Mumbai</p>
-      <h4>2021 | Completed</h4>
-      </div>
+<section class="section-container" id="contact">
+    <div class="glass-card" style="max-width: 600px; margin: 0 auto;">
+        <h2 class="heading">Get in <span>Touch</span></h2>
+        <form id="contact-form">
+            <input type="text" placeholder="Name" style="width:100%; padding:15px; margin-bottom:15px; background:rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:10px; color:white;">
+            <input type="email" placeholder="Email" style="width:100%; padding:15px; margin-bottom:15px; background:rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:10px; color:white;">
+            <textarea placeholder="Message" rows="5" style="width:100%; padding:15px; margin-bottom:15px; background:rgba(255,255,255,0.05); border:1px solid var(--glass-border); border-radius:10px; color:white;"></textarea>
+            <button type="submit" class="btn" style="width:100%; border:none; cursor:pointer;">Send Message</button>
+        </form>
     </div>
-
-</div>
-</section>
-<!-- education section ends -->
-
-
-<!-- work project section starts -->
-<section class="work" id="work">
-
-  <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>Made</span></h2>
-
-  <div class="box-container">
-
-</div>
-
-<div class="viewall">
-  <a href="/projects/index.html" class="btn"><span>View All</span>
-    <i class="fas fa-arrow-right"></i>
-</a>
-</div>
-
-</section>
-<!-- work project section ends -->
-<!-- experience section starts -->
-<section class="experience" id="experience">
-
-  <h2 class="heading"><i class="fas fa-briefcase"></i> Experience</h2>
-  <div class="quote">
-      <span>every experience in your life is being orchestrated to teach you something you need to know to move forward.</span>
-  </div>
-
-  <div class="timeline">
-
-
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>Goolge Developer Student Club</h2>
-        </div>
-        <div class="desc">
-            <h3>Mobile Application | Lead</h3>
-            <p>September 2023 - September 2024</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>Riseup-Infotech</h2>
-        </div>
-        <div class="desc">
-          <h3>Android Developer  || Internship Surat</h3>
-          <p>July 2023 - July 2023</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-        <div class="content">
-          <div class="tag">
-            <h2>Riseup-Infotech </h2>
-          </div>
-          <div class="desc">
-              <h3>Android Developer  || Internship Surat</h3>
-              <p>Augest 2022 - Augest 2022</p>
-          </div>
-        </div>
-      </div>
-  </div>
-
-  <div class="morebtn">
-    <a href="/#experience" class="btn">
-        <i class="fas fa-arrow-left"></i>
-        <span>Back to Home</span>
-  </a>
-  </div>
-
-</div>
-</section>
-<!-- experience section ends -->
-
-<!-- contact section starts -->
-<section class="contact" id="contact">
-  
-  <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
-
-  <div class="container">
-    <div class="content">
-      <div class="image-box">
-        <img draggable="false" src="./assets/images/contact1.png" alt="">
-      </div>
-    <form id="contact-form">
-      
-      <div class="form-group">
-        <div class="field">
-          <input type="text" name="name" placeholder="Name" required>
-          <i class='fas fa-user'></i>
-        </div>
-        <div class="field">
-          <input type="text" name="email" placeholder="Email" required>
-          <i class='fas fa-envelope'></i>
-        </div>
-        <div class="field">
-          <input type="text" name="phone" placeholder="Phone">
-          <i class='fas fa-phone-alt'></i>
-        </div>
-        <div class="message">
-        <textarea placeholder="Message" name="message" required></textarea>
-        <i class="fas fa-comment-dots"></i>
-        </div>
-        </div>
-      <div class="button-area">
-        <button type="submit">
-          Submit <i class="fa fa-paper-plane"></i></button>
-      </div>
-    </form>
-  </div>
-  </div>
-</section>
-<!-- contact section ends -->
-
-
-<!-- footer section starts -->
-<section class="footer">
-
-  <div class="box-container">
-
-      <div class="box">
-          <h3>Saurabh's Portfolio</h3>
-          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🌌✨. Let's Rock together 🚀</p>
-      </div>
-
-      <div class="box">
-          <h3>quick links</h3>
-          <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
-          <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
-          <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
-          <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
-          <a href="#work"><i class="fas fa-chevron-circle-right"></i> work</a>
-          <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
-      </div>
-
-      <div class="box">
-          <h3>contact info</h3>
-          
-          <p> <i class="fas fa-envelope"></i>saurabhx2004@gmail.com</p>
-          <p> <i class="fas fa-map-marked-alt"></i>Ahmedabad, India-</p>382481
-          <div class="share">
-
-            <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/saurabh-singh-722246230/" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
-            <li><a class="github" aria-label="GitHub" href="https://github.com/100rabx23" target="_blank"><i class="fab fa-github"></i></a></li>
-            <li><a class="twitter" aria-label="Twitter" href="https://x.com/saurabhx2004?t=ei9ic-O04bR-XeUgtNh3ig&s=09" target="_blank"><i class="fab fa-twitter"></i></a></li>
-            <!--<li><a class="telegram" aria-label="Telegram" href="https://t.me/lifecode5" target="_blank"><i class="fab fa-telegram-plane"></i></a></li> -->
-            <li><a class="instagram" aria-label="Instagram" href="https://www.instagram.com/100rabx_"><i class="fab fa-instagram" target="_blank"></i></a></li>
-            <li><a class="dev" aria-label="Dev" href="https://dev.to/saurabh_singh_70862121ab3" target="_blank"><i class="fab fa-dev"></i></a></li>
-  
-          </div>
-      </div>
-  </div>
-
-  <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/saurabh-singh-722246230/"> Saurabh Singh</a></h1>
-
 </section>
 
+<footer class="footer">
+    <p>Designed with <i class="fa fa-heart" style="color: #ef4444;"></i> by Saurabh Singh</p>
+    <div style="margin-top: 10px; opacity: 0.6;">© 2026 Saurabh's Portfolio</div>
+</footer>
 
-
-
-<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
-
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
-<script src="./assets/js/particles.min.js"></script>
-<script src="./assets/js/app.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<script src="https://unpkg.com/scrollreveal"></script>
-
-<script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
-    ></script>
-
-
-<script src="./assets/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+<script>
+    // Typing Animation
+    var typed = new Typed(".typing-text", {
+        strings: ["Android Development", "Kotlin Multiplatform", "Python Scripting", "Cybersecurity"],
+        loop: true,
+        typeSpeed: 50,
+        backSpeed: 25,
+        backDelay: 500,
+    });
+</script>
 
 </body>
 </html>
