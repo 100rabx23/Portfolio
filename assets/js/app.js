@@ -12,8 +12,11 @@ particlesJS.load('particles-js', 'particles.json', function() {
 /* Otherwise just put  ok he config content (json): */
 
 
+////
 
-####
+
+
+////
 
 particlesJS('particles-js',
   
