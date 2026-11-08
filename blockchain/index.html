@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blockchain — Saurabh Singh</title>
+<style>
+:root{--bg:#141212;--fg:#F3EEEC;--mut:rgba(243,238,236,.62);--card:#1F1C1C;--line:rgba(243,238,236,.12);--acc:#E27A3A}
+:root[data-mode=light]{--bg:#EAE6E2;--fg:#1A1818;--mut:rgba(26,24,24,.62);--card:#F6F3F0;--line:rgba(26,24,24,.14)}
+*{box-sizing:border-box}html{background:var(--bg)}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--fg);font:16px/1.5 Onest,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:0 clamp(1rem,5vw,4rem) 4rem}
+.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.5rem 0;position:sticky;top:0;background:var(--bg);z-index:2}
+.top a,.top button{font:inherit;color:var(--fg);background:none;border:1px solid var(--line);border-radius:999px;padding:.55rem 1rem;cursor:pointer;text-decoration:none}
+.top a:hover,.top button:hover{border-color:var(--fg)}
+.nav{display:flex;gap:.5rem;flex-wrap:wrap}.nav a[aria-current]{background:var(--fg);color:var(--bg)}
+h1{font-size:clamp(2.5rem,8vw,6rem);line-height:.95;letter-spacing:-.04em;margin:3rem 0 .5rem}
+.sub{font-size:1.25rem;font-weight:600;margin:0 0 .5rem}.lead{color:var(--mut);max-width:40rem;margin:0 0 3rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,18rem),1fr))}
+.card{display:flex;flex-direction:column;gap:.5rem;background:var(--card);border:1px solid var(--line);border-radius:1.25rem;padding:1.5rem;color:inherit;text-decoration:none;transition:transform .3s,border-color .3s}
+a.card:hover{transform:translateY(-4px);border-color:var(--acc)}
+.card h2{margin:0;font-size:1.35rem;letter-spacing:-.02em}.tag{font:700 .75rem ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.card p{margin:0;color:var(--mut)}.go{margin-top:auto;padding-top:.75rem;font-weight:600}
+.cta{margin-top:3rem}.cta button{font:inherit;background:var(--fg);color:var(--bg);border:0;border-radius:999px;padding:.85rem 1.5rem;cursor:pointer}
+</style></head><body>
+<div class="top"><div class="nav"><a href="../full-stack/" data-i="0">Full Stack</a><a href="../android/" data-i="1">Android</a><a href="../ai-ml/" data-i="2">AI / ML</a><a href="../iot/" data-i="3">IoT</a><a href="../blockchain/" data-i="4" aria-current="page">Blockchain</a></div><button id="x" type="button">Close ✕</button></div>
+<main><h1>Blockchain</h1><p class="sub">Rewards you can verify</p><p class="lead">Smart contracts and token rewards behind real apps.</p>
+<div class="grid"><a class="card" href="https://github.com/100rabx23/StudyCoin" target="_blank" rel="noopener"><span class="tag">Solidity · Polygon Amoy · MetaMask</span><h2>Study-Coin · FocusToken (FCS)</h2><p>An ERC-20 token that rewards focus: 1 FCS for every 60 seconds, with a React front end and a Python WebSocket backend.</p><span class="go">View on GitHub ↗</span></a><a class="card" href="https://github.com/100rabx23" target="_blank" rel="noopener"><span class="tag">Fundamentals of Blockchain Technology</span><h2>Certification</h2><p>Completed formal training in blockchain fundamentals alongside the hands-on work.</p><span class="go">View on GitHub ↗</span></a></div>
+<div class="cta"><button id="hire" type="button">Work with me</button></div></main>
+<script>
+const emb=window.top!==window,post=m=>{try{parent.postMessage(m,location.origin==='null'?'*':location.origin)}catch(e){}};
+addEventListener('message',e=>{if(e.data&&e.data.wall==='mode')document.documentElement.dataset.mode=e.data.mode});
+document.getElementById('x').onclick=()=>emb?post({wall:'close'}):location.href='../';
+document.getElementById('hire').onclick=()=>emb?post({wall:'go',to:'contact'}):location.href='../#contact';
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',e=>{if(emb){e.preventDefault();post({wall:'go',to:'door:'+a.dataset.i})}}));
+</script></body></html>
